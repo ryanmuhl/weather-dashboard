@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  </head>
+  <body>
+      <header class="is-flex is-justify-content-center has-background-link-dark my-header">
+        <h1 class="title has-background-link-dark has-text-white-bis is-align-items-center is-flex">
+            Weather Dashboard
+          </h1>
+      </header>
+      
+     <div class="is-flex column"> 
+      <aside class="is-flex is-flex-direction-column my-aside">
+          <h2 class="is-size-4">Search for a City:</h2>
+        <input class="input is-small is-link my-input" type="text" placeholder="City" id="type-city-name">
+        <button class="button is-link is-normal" id="search-city">Search</button>
+        <div class="my-button"></div>
+        <div>
+            <ul id="city-list">
+
+            </ul>
+        </div>
+      </aside>
+  <section class="is-flex is-flex-direction-column">
+    <div class="is-flex is-justify-content-center my-city-info">
+
+    </div>
+
+  </section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="./assets/js/script.js"></script>
+  </body>
+</html>

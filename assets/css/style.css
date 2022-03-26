@@ -1,0 +1,26 @@
+.my-header {
+    height: 100px;
+   
+}
+
+.my-input {
+    margin: 5px 0px 5px 0px;
+}
+
+.my-aside {
+    width: 300px;
+    padding-bottom: 20px;
+}
+
+.my-button {
+    border-bottom: black solid;
+    margin-top: 20px;
+}
+
+
+.my-city-info {
+    border: black solid;
+    width: 75vw;
+    height: 300px;
+    margin-left: 10px;
+}
