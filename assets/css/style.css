@@ -23,9 +23,24 @@
     width: 75vw;
     height: 300px;
     margin-left: 10px;
+    
 }
 
 .my-cities {
-    width: 21vw;
-    margin: 5px;
+
+    margin-top: 5px;
 }
+
+.five-day1, .five-day2, .five-day3, .five-day4, .five-day5 {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px lightblue;
+    /* display: none; */
+}
+
+.my-five-day {
+    /* display: none; */
+    
+}
+

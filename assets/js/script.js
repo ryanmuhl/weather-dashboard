@@ -21,8 +21,6 @@ var latLong = function () {
         .then(function (response) {
             // console.log(response)
             return response.json();
-
-
         })
 
         .then(function (data) {
@@ -37,7 +35,9 @@ var latLong = function () {
         });
 
 
-}
+
+    }
+
 
 var citySearch = function (coord1, coord2) {
 
@@ -61,7 +61,14 @@ var citySearch = function (coord1, coord2) {
             var uvIndex = data.current.uvi
             currentData(temp, wind, humidity, uvIndex)
 
-
+            var dailyWeather = data.daily
+            for (i=0; i< 5; i++) {
+                var forcast = dailyWeather[i]
+                var weatherDataAll = forcast.temp
+                console.log(weatherDataAll)
+                fiveDayForcast()
+            }
+            
         });
 
 }
@@ -106,4 +113,8 @@ var currentData = function (currentInfo1, currentInfo2, currentInfo3, currentInf
     currentCityContainer.append(currentCityInfo4)
 
 
+}
+
+var fiveDayForcast = function () {
+    
 }
