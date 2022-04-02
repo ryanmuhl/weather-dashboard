@@ -1,14 +1,15 @@
 
 var cityContainer = document.querySelector("#city-list");
-var currentCityContainer = document.querySelector('#current-city-info')
-var fiveDayWeather = document.querySelector('#five-day1')
+var currentCityContainer = document.querySelector("#current-city-info")
+var fiveDayWeather = document.querySelector("#five-day-container")
 
 
 $("#search-city").click(function (event) {
     event.preventDefault()
+    
     // console.log(event.target)
     latLong();
-
+    
 });
 
 
@@ -36,6 +37,7 @@ var latLong = function () {
             var currentDate = moment.unix(data.dt).format("MM/DD/YYYY")
 
             appendCity(currentCity, currentDate)
+            
 
         });
 
@@ -72,6 +74,7 @@ var citySearch = function (coord1, coord2) {
 }
 
 var appendCity = function (cityList, curDate) {
+    $(currentCityContainer).empty()
     var currentInfo = document.createElement("h2")
     var cityLi = document.createElement("li");
     var cityButton = document.createElement("button")
@@ -82,21 +85,36 @@ var appendCity = function (cityList, curDate) {
 
     cityContainer.append(cityLi)
     cityLi.append(cityButton)
+    
     currentCityContainer.append(currentInfo)
+
     currentInfo.append(cityList)
     currentInfo.append("   ")
     currentInfo.append(curDate)
+    
+    localStorage.setItem(cityButton, cityButton.textContent)
+    
+    
+    
+    
+  
+
 }
+    
+    
 
     
 var currentData = function (currentInfo1, currentInfo2, currentInfo3, currentInfo4) {
-
+    console.log(currentCityInfo1)
+    
     var currentCityInfo1 = document.createElement("p")
     var currentCityInfo2 = document.createElement("p")
     var currentCityInfo3 = document.createElement("p")
     var currentCityInfo4 = document.createElement("p")
 
-     currentCityInfo1.textContent = "Temperature :  " + currentInfo1 + "  F"
+    
+
+    currentCityInfo1.textContent = "Temperature :  " + currentInfo1 + "  F"
     currentCityInfo2.textContent = "Wind Speed :  " + currentInfo2 + "  MPH"
     currentCityInfo3.textContent = "Humidity :  " + currentInfo3 + "  %"
     currentCityInfo4.textContent = "UVI :  " + currentInfo4
@@ -105,13 +123,16 @@ var currentData = function (currentInfo1, currentInfo2, currentInfo3, currentInf
     currentCityContainer.append(currentCityInfo2)
     currentCityContainer.append(currentCityInfo3)
     currentCityContainer.append(currentCityInfo4)
+
+    
 }
 
 var renderForcast = function (data) {
-
+    $(fiveDayWeather).empty()
     for (let index = 0; index < 5; index++) {
         
         renderForcastCard (data[index]);
+        
         
     }
 }
@@ -119,28 +140,33 @@ var renderForcast = function (data) {
     
 var renderForcastCard = function (data) {
     console.log(data)
+    
 
     var date = document.createElement("h3")
     var tempElement = document.createElement("p")
     var windElement = document.createElement("p")
     var humidityElement = document.createElement("p")
     var uviElement = document.createElement("p")
+    var weatherIcon = document.createElement("img")
     var fiveDayDiv = document.createElement("div")
 
+
     fiveDayDiv.setAttribute("class","five-day has-background-link weather-style has-text-white")
-
-
+    weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
+    
     date.textContent = moment.unix(data.dt).format("MM/DD/YYYY")
     tempElement.textContent = "Temp :  " + data.temp.day + "  F"
     windElement.textContent = "Wind Speed :  " + data.wind_speed + "  MPH"
     humidityElement.textContent = "Humidity :  " + data.humidity + "  %"
     uviElement.textContent = "uvi :  " + data.uvi
     
+    fiveDayDiv.append(weatherIcon)
     fiveDayDiv.append(date)
     fiveDayDiv.append(tempElement)
     fiveDayDiv.append(windElement)
     fiveDayDiv.append(humidityElement)
     fiveDayDiv.append(uviElement)
+    
   
     document.getElementById("five-day-container").append(fiveDayDiv)
 
