@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  </head>
-  <body>
-      <header class="is-flex is-justify-content-center has-background-link-dark my-header">
-        <h1 class="title has-background-link-dark has-text-white-bis is-align-items-center is-flex">
-            Weather Dashboard
-          </h1>
-      </header>
-      
-     <div class="is-flex column"> 
-      <aside class="is-flex is-flex-direction-column my-aside">
-          <h2 class="is-size-4">Search for a City:</h2>
-        <input class="input is-small is-link my-input" type="text" placeholder="City" id="type-city-name">
-        <button class="button is-link is-normal" id="search-city">Search</button>
-        <div class="my-button"></div>
-        <div class="mt-2">
-            <ul id="city-list">
 
-            </ul>
-        </div>
-      </aside>
-  <section class="is-flex is-flex-direction-column is-justify-content-center-flex-start">
-    <div class="is-flex is-flex-direction-column my-city-info" id="current-city-info">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
 
-    </div>
-    <div class="my-five-day pl-2" id="five-day">
+<body>
+  <header class="is-flex is-justify-content-center has-background-link-dark my-header">
+    <h1 class="title has-background-link-dark has-text-white-bis is-align-items-center is-flex">
+      Weather Dashboard
+    </h1>
+  </header>
+
+  <div class="is-flex column">
+    <aside class="is-flex is-flex-direction-column my-aside">
+      <h2 class="is-size-4">Search for a City:</h2>
+      <input class="input is-small is-link my-input" type="text" placeholder="City" id="type-city-name">
+      <button class="button is-link is-normal" id="search-city">Search</button>
+      <div class="my-button"></div>
+      <div class="mt-2">
+        <ul id="city-list">
+
+        </ul>
+      </div>
+    </aside>
+    <section class="is-flex is-flex-direction-column is-justify-content-center-flex-start">
+      <div class="is-flex is-flex-direction-column my-city-info" id="current-city-info">
+
+      </div>
+      <div class="my-five-day pl-2" id="five-day">
         <h2 class="is-size-5 has-text-weight-bold ">5-DAY FORCAST</h2>
-    </div>
-   
-    <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between pl-2 pt-5">
-    <div class="five-day1 has-background-link">
-        
       </div>
-      <div class="five-day2 has-background-link">
-        
+
+      <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between pl-2 pt-5" id="five-day-container">
+
+        <!-- <div class="five-day has-background-link weather-style" id="five-day1">
+
+        </div>
+        <div class="five-day has-background-link weather-style">
+
+        </div>
+        <div class="five-day has-background-link weather-style">
+
+        </div>
+        <div class="five-day has-background-link weather-style">
+
+        </div>
+        <div class="five-day has-background-link weather-style">
+
+        </div> -->
       </div>
-      <div class="five-day3 has-background-link">
-        
-      </div>
-      <div class="five-day4 has-background-link">
-    
-      </div>
-      <div class="five-day5 has-background-link">
-    
-      </div>
-    </div>
-  </section>
+    </section>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-     <script src="./assets/js/script.js"></script>
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
 </html>

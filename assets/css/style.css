@@ -31,7 +31,7 @@
     margin-top: 5px;
 }
 
-.five-day1, .five-day2, .five-day3, .five-day4, .five-day5 {
+.five-day {
     width: 200px;
     height: 200px;
     border-radius: 20px;
@@ -44,3 +44,6 @@
     
 }
 
+.weather-style {
+    padding: 10px;
+}
