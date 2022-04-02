@@ -32,11 +32,12 @@ var latLong = function () {
             citySearch(lati, longi)
 
             var currentCity = data.name
+            var currentDate = moment.unix(data.dt).format("MM/DD/YYYY")
             
 
-            var currentDate = moment.unix(data.dt).format("MM/DD/YYYY")
 
-            appendCity(currentCity, currentDate)
+            appendCity(currentCity)
+            searchedCity(currentCity, currentDate)
             
 
         });
@@ -73,35 +74,50 @@ var citySearch = function (coord1, coord2) {
 
 }
 
-var appendCity = function (cityList, curDate) {
+var appendCity = function (cityList) {
+    
+    $(currentCityContainer).empty()
+    
+    var cityArray = JSON.parse(window.localStorage.getItem("city")) || [];
+
+    if (cityList) {
+    cityArray.push(cityList);
+    }
+    localStorage.setItem("city", JSON.stringify(cityArray));
+    saveCity (cityArray)
+    
+}
+
+var searchedCity = function (curCity, curDate) {
     $(currentCityContainer).empty()
     var currentInfo = document.createElement("h2")
-    var cityLi = document.createElement("li");
-    var cityButton = document.createElement("button")
     
-    cityButton.textContent = cityList
-    cityButton.setAttribute("class", "button is-success my-cities");
     currentInfo.setAttribute("class", "has-text-weight-bold is-size-3")
-
-    cityContainer.append(cityLi)
-    cityLi.append(cityButton)
     
     currentCityContainer.append(currentInfo)
-
-    currentInfo.append(cityList)
+    currentInfo.append(curCity)
     currentInfo.append("   ")
     currentInfo.append(curDate)
-    
-    localStorage.setItem(cityButton, cityButton.textContent)
-    
-    
-    
-    
-  
-
 }
+
+var saveCity = function (array) {
     
+    $(cityContainer).empty()
+    for (i = 0; i < array.length; i++) {
+        
+        var cityLi = document.createElement("ul");
+        var cityButton = document.createElement("li")
+        cityButton.setAttribute("class", "has-background-success has-text-white my-cities");
+        
+        cityButton.textContent = array[i]
+        cityContainer.append(cityLi)
+        cityLi.append(cityButton)
+        
+      }
+}
+   
     
+
 
     
 var currentData = function (currentInfo1, currentInfo2, currentInfo3, currentInfo4) {
@@ -171,9 +187,34 @@ var renderForcastCard = function (data) {
     document.getElementById("five-day-container").append(fiveDayDiv)
 
 }
+     
+appendCity ()
             
-            
+//Function to keep local storage persistant when page reloads (Song List remains when page reloads)
+// function loadingPlaylistText(songUrl) {
 
+//     // var cityArray = JSON.parse(window.localStorage.getItem("text")) || [];
+  
+//     if (songUrl) {
+//       songListArray.push(songUrl);
+//     }
+  
+//     localStorage.setItem("text", JSON.stringify(songListArray));
+  
+//     saveClick(songListArray)
+  
+//   }
+  
+//   //function to Save to local storage when an individual song link is selected
+//   function saveClick(info) {
+//     $(list).empty()
+//     for (i = 0; i < info.length; i++) {
+//       var listContent = document.createElement("li")
+//       listContent.textContent = (info[i])
+//       list.append(listContent)
+//     }
+  
+//   }
     
 
 
@@ -187,20 +228,4 @@ var renderForcastCard = function (data) {
 
 
 
-// var fiveDayForcast = function (weather1, weather2, weather3, weather4) {
-//     var weatherInfo1 = document.createElement("p")
-//     var weatherInfo2 = document.createElement("p")
-//     var weatherInfo3 = document.createElement("p")
-//     var weatherInfo4 = document.createElement("p")
 
-//     weatherInfo1.textContent = "Temp  :  " + weather1 + " F"
-//     weatherInfo2.textContent = "Wind  :  " + weather2 + " MPH"
-//     weatherInfo3.textContent = "Humidity  :  " + weather3 + " %"
-//     weatherInfo4.textContent = "UVI  :  " + weather4
-
-//     fiveDayWeather.append (weatherInfo1)
-//     fiveDayWeather.append (weatherInfo2)
-//     fiveDayWeather.append (+ weatherInfo3)
-//     fiveDayWeather.append (weatherInfo4)
-// }
-    
