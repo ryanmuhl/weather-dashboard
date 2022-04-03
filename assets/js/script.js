@@ -32,10 +32,11 @@ var latLong = function () {
             citySearch(lati, longi)
 
             var currentCity = data.name
+            var currentWeather = data.weather[0].icon
             var currentDate = moment.unix(data.dt).format("MM/DD/YYYY")
 
             appendCity(currentCity)
-            searchedCity(currentCity, currentDate)
+            searchedCity(currentCity, currentDate, currentWeather)
 
         });
 
@@ -109,16 +110,23 @@ var appendCity = function (cityList) {
 }
 
 // Function to Append Current City and Date to Current City Data Field
-var searchedCity = function (curCity, curDate) {
+var searchedCity = function (curCity, curDate, weather) {
     $(currentCityContainer).empty()
     var currentInfo = document.createElement("h2")
-
+    var figureImage = document.createElement("figure")
+    var curWeatherCond = document.createElement("img")
+    curWeatherCond.setAttribute("src", "http://openweathermap.org/img/wn/" + weather + "@2x.png")
+    figureImage.setAttribute("class", "image is-64x64")
+    
     currentInfo.setAttribute("class", "has-text-weight-bold is-size-3")
 
+    currentCityContainer.append(figureImage)
+    figureImage.append(curWeatherCond)
     currentCityContainer.append(currentInfo)
     currentInfo.append(curCity)
     currentInfo.append("   ")
     currentInfo.append(curDate)
+    currentInfo.append("    ")
 }
 
 //Function to append current city data/weather conditions to Current City Data Field
