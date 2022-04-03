@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+<!-- Start Head Section -->
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,15 +10,24 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
+<!-- End Head Section -->
+
+<!-- Start Body -->
 
 <body>
+
+  <!-- Start Header Section -->
   <header class="is-flex is-justify-content-center has-background-link-dark my-header">
     <h1 class="title has-background-link-dark has-text-white-bis is-align-items-center is-flex">
       Weather Dashboard
     </h1>
   </header>
+  <!-- End Header Section -->
 
+  <!-- Start Main Content Container -->
   <div class="is-flex column">
+
+    <!-- City search aside section -->
     <aside class="is-flex is-flex-direction-column my-aside">
       <h2 class="is-size-4">Search for a City:</h2>
       <input class="input is-small is-link my-input" type="text" placeholder="City" id="type-city-name">
@@ -28,6 +39,9 @@
         </ul>
       </div>
     </aside>
+    <!-- City search Aside section -->
+
+    <!-- Current City and Five Day Forecast Container/Section -->
     <section class="is-flex is-flex-direction-column is-justify-content-center-flex-start">
       <div class="is-flex is-flex-direction-column my-city-info" id="current-city-info">
 
@@ -40,11 +54,14 @@
 
       </div>
     </section>
+    <!-- End Current City and Five Day Forecast Container/Section -->
+  </div>
+  <!-- End Main content container -->
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
+<!-- End Body -->
 
 </html>
