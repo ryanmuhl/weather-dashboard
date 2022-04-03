@@ -15,6 +15,7 @@ Create a weather application that allows a user to see the weather outlook for m
 
 ## Criteria Not Met/Difficulties
 * When User selects city in search history,  user is able to re display current and future weather conditions for the selected city.
+* Plan is to re submit at a later date to meet last criteria.  Tutor/TA assistance is needed to complete last section of this challenge.
 
 ## Built With
 * HTML
@@ -36,7 +37,7 @@ https://ryanmuhl.github.io/weather-dashboard/
 https://github.com/ryanmuhl/weather-dashboard
 
 ## Screenshot
-![Challenge Screenshot](https://github.com/ryanmuhl/work-day-scheduler/blob/main/assets/images/screenshot.png.jpg)
+![Challenge Screenshot](https://github.com/ryanmuhl/work-day-scheduler/blob/main/assets/images/weather.png.jpg)
 
 ## Contribution
 Created/Designed by Ryan M. Uhl
