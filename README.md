@@ -37,7 +37,7 @@ https://ryanmuhl.github.io/weather-dashboard/
 https://github.com/ryanmuhl/weather-dashboard
 
 ## Screenshot
-![Challenge Screenshot](https://github.com/ryanmuhl/work-day-scheduler/blob/main/assets/images/weather.png.jpg)
+![Challenge Screenshot](https://github.com/ryanmuhl/weather-dashboard/blob/main/assets/images/weather.png.jpg)
 
 ## Contribution
 Created/Designed by Ryan M. Uhl
