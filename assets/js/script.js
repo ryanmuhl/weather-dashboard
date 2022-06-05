@@ -2,19 +2,30 @@
 var cityContainer = document.querySelector("#city-list");
 var currentCityContainer = document.querySelector("#current-city-info")
 var fiveDayWeather = document.querySelector("#five-day-container")
-var cityClick = document.querySelector("#click-city")
+// var cityClick = document.querySelector("#click-city")
 
 //Click event/Function to Search for Latitude and Longitude
 //Fetch data from current weather API
 $("#search-city").click(function (event) {
     event.preventDefault()
-    latLong();
+    //add check to see if input is empty
+    //if empty, return without calling latLong()
+    cityName = $("#type-city-name").val();
+
+    latLong(cityName);
 
 });
 
+var citySelect = function (event) {
+    event.preventDefault();
+    buttonText = event.target.innerHTML
+    latLong(buttonText);
+
+}
+
 //Function to fetch data from current weather API
-var latLong = function () {
-    cityName = $("#type-city-name").val();
+var latLong = function (cityName) {
+    // cityName = $("#type-city-name").val();
 
     var requestUrlLink = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=ebf599dc48a9abbd47ad19f67bdf029f"
 
@@ -82,11 +93,13 @@ var saveCity = function (array) {
         var cityButton = document.createElement("button")
         cityButton.setAttribute("class", "button is-primary my-cities");
         cityButton.setAttribute("id", "click-city")
-
         cityButton.textContent = array[i]
+
+        //add eventListener to call the latLong function using the name contained in the button itself
+        cityButton.addEventListener("click", citySelect);
+
         cityContainer.append(cityLi)
         cityLi.append(cityButton)
-
     }
 
 }
@@ -180,6 +193,7 @@ var renderForcastCard = function (data) {
     windElement.textContent = "Wind Speed :  " + data.wind_speed + "  MPH"
     humidityElement.textContent = "Humidity :  " + data.humidity + "  %"
     uviElement.textContent = "uvi :  " + data.uvi
+    
 
     fiveDayDiv.append(weatherIcon)
     fiveDayDiv.append(date)
