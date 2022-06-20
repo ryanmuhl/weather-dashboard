@@ -13,6 +13,7 @@ $("#search-city").click(function (event) {
     cityName = $("#type-city-name").val();
 
     latLong(cityName);
+    appendCity(cityName);
 
 });
 
@@ -46,7 +47,7 @@ var latLong = function (cityName) {
             var currentWeather = data.weather[0].icon
             var currentDate = moment.unix(data.dt).format("MM/DD/YYYY")
 
-            appendCity(currentCity)
+            // appendCity(currentCity)
             searchedCity(currentCity, currentDate, currentWeather)
 
         });
